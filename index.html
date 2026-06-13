@@ -9,7 +9,7 @@
 
     <center>
         <!-- FAKE BANNER AD -->
-        <div class="ad-banner" onclick="alert('YOU WON A VIRUS! (just kidding)')">
+        <div class="ad-banner" onclick="claimCruise()">
             <blink><font color="red" size="5"><b>*** CONGRATULATIONS ***</b></font></blink><br>
             <marquee behavior="alternate" scrollamount="20"><font color="yellow" size="4">YOU ARE THE 1,000,000th VISITOR!!! CLICK HERE TO CLAIM YOUR FREE CRUISE!!!</font></marquee>
         </div>
@@ -53,7 +53,7 @@
 
         <div style="float: right; margin-left: 10px;">
             <!-- ANOTHER FAKE AD -->
-            <div class="ad-box" onclick="alert('Downloading smiley toolbar...')">
+            <div class="ad-box" onclick="installSmileyToolbar()">
                 <font color="#0000FF" size="3"><b>WANT FREE SMILEYS???</b></font><br>
                 <marquee direction="up" scrollamount="5" height="50">
                     😀 😃 😄 😁 😆 😅 😂 🤣
@@ -63,28 +63,29 @@
             
             <br>
             <!-- MONKEY AD -->
-            <div class="ad-box-monkey" onclick="alert('You missed! Try again!')">
+            <div class="ad-box-monkey" id="monkey-ad" onclick="punchMonkey()">
                 <font color="white" size="3"><b>PUNCH THE MONKEY!</b></font><br>
-                <marquee behavior="alternate" scrollamount="35"><span style="font-size: 24px;">🐒</span></marquee>
+                <marquee behavior="alternate" scrollamount="35"><span style="font-size: 24px; cursor: crosshair;">🐒</span></marquee>
                 <font color="yellow" size="2"><b>WIN $20!!!</b></font>
             </div>
         </div>
 
         <div class="photo-container">
             <div class="photo-box">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/IBM_Blue_Gene_P_supercomputer.jpg/220px-IBM_Blue_Gene_P_supercomputer.jpg" alt="A supercomputer server rack" width="220" height="293">
+                <img src="https://avatars.akamai.steamstatic.com/84eab140cc7e4aaeafe2bd04e94896f514fcea3e_full.jpg" alt="A supercomputer server rack" width="220" height="293">
             </div>
             <p align="center"><font size="4" color="#FFFF00"><b>My Best Friend</b></font></p>
             
             <br>
             <center>
-                <button class="donate-btn" onclick="donateAlert()">💰 DONATE NOW 💰</button>
+                <font color="#00FF00" size="3"><b>Funds Raised: $<span id="donation-total">0</span> / $1,000,000</b></font><br><br>
+                <button class="donate-btn" onclick="donate()">💰 DONATE NOW 💰</button>
             </center>
         </div>
 
         <font face="Comic Sans MS" size="5" color="#00FFFF">
             <p>
-                Hi, my name is CAB, and this is my AI assistant, Nexus. <br>
+                Hi, my name is jusu, and this is my AI assistant, Nexus. <br>
                 <marquee scrollamount="5" direction="right" width="50%" bgcolor="#FF0000"><font color="white">He is a VERY good AI!!!</font></marquee>
             </p>
 
@@ -115,8 +116,11 @@
 
         <div class="guestbook">
             <h3><font color="#FFFFFF" face="Times New Roman">Sign My Guestbook!!!</font></h3>
-            <textarea rows="3" cols="40" style="background-color:#FFFF00; color:#000000; font-weight:bold;">Wow what a cool site!!! I love the colors!</textarea><br><br>
-            <button style="background-color:#0000FF; color:#FFFFFF; font-size:18px; border:3px outset white; cursor: pointer;" onclick="alert('ERROR: Guestbook database corrupted in 1999!')">Sign It!</button>
+            <textarea id="guestbook-input" rows="3" cols="40" style="background-color:#FFFF00; color:#000000; font-weight:bold;"></textarea><br><br>
+            <button style="background-color:#0000FF; color:#FFFFFF; font-size:18px; border:3px outset white; cursor: pointer;" onclick="signGuestbook()">Sign It!</button>
+            <div id="guestbook-entries" style="margin-top: 15px; text-align: left; background: #000; padding: 10px; border: 2px inset gray; max-height: 200px; overflow-y: auto;">
+                <p><b>xX_Dark_Hacker_Xx:</b> Wow what a cool site!!! I love the colors!</p>
+            </div>
         </div>
 
         <div class="footer">
