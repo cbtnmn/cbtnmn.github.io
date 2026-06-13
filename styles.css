@@ -1,0 +1,167 @@
+body {
+    background: repeating-linear-gradient(
+        45deg,
+        #000000,
+        #000000 10px,
+        #220044 10px,
+        #220044 20px
+    );
+    color: #ffffff;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+blink {
+    animation: blinker 0.6s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+.spinny {
+    display: inline-block;
+    font-size: 32px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    background-color: #000044;
+    border: 5px solid #FF00FF;
+    box-shadow: 10px 10px 0px #00FF00;
+}
+
+/* FAKE ADS */
+.ad-banner {
+    width: 728px;
+    height: 90px;
+    background-color: #0000FF;
+    border: 4px dotted #FFFF00;
+    margin: 0 auto;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.ad-box {
+    width: 150px;
+    background-color: #00FFFF;
+    border: 3px solid #000000;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.ad-box-monkey {
+    width: 150px;
+    background-color: #008000;
+    border: 3px ridge #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    cursor: crosshair;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    background-color: #000000;
+    padding: 10px;
+    border: 3px dashed #FFFF00;
+}
+
+.flame-text {
+    font-size: 48px;
+    display: inline-block;
+    animation: burn 0.1s infinite alternate;
+}
+
+.flame-divider {
+    font-size: 24px;
+    letter-spacing: 15px;
+    text-align: center;
+    margin: 20px 0;
+    animation: burn 0.2s infinite alternate;
+}
+
+@keyframes burn {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(1.2) translateY(-2px); text-shadow: 0 -5px 10px red; }
+}
+
+.photo-container {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    border: 5px ridge #00FFFF;
+    padding: 10px;
+    background-color: #FF0000;
+}
+
+.photo-box {
+    width: 220px;
+    height: 293px;
+    background-color: #cccccc;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px inset gray;
+}
+
+.donate-btn {
+    background-color: #FFFF00;
+    color: #FF0000;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 25px;
+    border: 5px outset #FF00FF;
+    cursor: pointer;
+    font-family: "Impact", sans-serif;
+    text-decoration: underline;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.donate-btn:active {
+    border: 5px inset #FF00FF;
+}
+
+.guestbook {
+    margin-top: 40px;
+    background-color: #008000;
+    border: 4px dotted #FFFF00;
+    padding: 20px;
+    text-align: center;
+    clear: both;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    clear: both;
+    background-color: #000000;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+.counter {
+    font-family: "Courier New", Courier, monospace;
+    background: #000000;
+    color: #FF0000;
+    padding: 5px 10px;
+    border: 4px inset #808080;
+    letter-spacing: 5px;
+    font-size: 32px;
+    font-weight: bold;
+}
