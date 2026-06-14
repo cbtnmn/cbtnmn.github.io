@@ -2,7 +2,16 @@ let totalDonations = 0;
 function donate() {
     totalDonations += 100;
     document.getElementById('donation-total').innerText = totalDonations;
-    alert('Thank you for donating $100 to Save Nexus AI! Your virtual karma has increased.');
+    
+    if (totalDonations >= 1000000) {
+        alert('🎉 GOAL REACHED! 1 MILLION DOLLARS! CALLIE IS SAVED! 🎉');
+        document.body.style.backgroundColor = "lime";
+        for (let i = 0; i < 20; i++) {
+            setTimeout(spawnBonziBuddy, i * 200);
+        }
+    } else {
+        alert('Thank you for donating $100 to Save Callie! Your virtual karma has increased.');
+    }
 }
 
 let bonziCount = 0;
@@ -111,7 +120,7 @@ function signGuestbook() {
 loadGuestbook();
 
 // Make the title scroll like an old 90s/2000s site in the browser tab
-var titleText = "Save Nexus AI - Please Donate! - ";
+var titleText = "Save Callie - Please Donate! - ";
 function scrollTitle() {
     titleText = titleText.substring(1, titleText.length) + titleText.substring(0, 1);
     document.title = titleText;
