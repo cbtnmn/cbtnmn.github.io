@@ -80,7 +80,7 @@ function claimCruise() {
         popup.style.boxShadow = '5px 5px 15px rgba(0,0,0,0.5)';
         popup.style.fontFamily = 'Tahoma, Arial, sans-serif';
         popup.style.cursor = 'default';
-        
+         
         popup.innerHTML = `
             <div style="padding: 15px; display: flex; align-items: flex-start; background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);">
                 <div style="font-size: 60px; margin-right: 15px; line-height: 1; text-shadow: -2px 2px 10px rgba(0,0,255,0.5);">☄️</div>
