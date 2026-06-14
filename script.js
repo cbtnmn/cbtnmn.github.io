@@ -66,7 +66,15 @@ function installSmileyToolbar() {
     toolbar.style.borderTop = '3px outset white';
     toolbar.style.padding = '5px';
     toolbar.style.zIndex = '9999';
-    toolbar.innerHTML = '<b style="color: blue;">Smiley Toolbar™:</b> 😀 😃 😄 😁 😆 😅 😂 🤣 😇 😉 😊 😋 😌 😍 <button onclick="this.parentElement.remove()" style="float:right; margin-right: 10px;">X</button>';
+    
+    let emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣', '😇', '😉', '😊', '😋', '😌', '😍'];
+    let html = '<b style="color: blue;">Smiley Toolbar™:</b> ';
+    emojis.forEach(e => {
+        html += `<span style="cursor:pointer; font-size:20px; margin:0 5px;" onclick="document.getElementById('guestbook-input').value += '${e}'" title="Insert ${e}">${e}</span>`;
+    });
+    html += '<button onclick="this.parentElement.remove()" style="float:right; margin-right: 10px; cursor: pointer; border: 2px outset white; font-weight: bold;">X</button>';
+    
+    toolbar.innerHTML = html;
     document.body.appendChild(toolbar);
 }
 
