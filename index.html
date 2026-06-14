@@ -17,7 +17,7 @@
 
         <h1>
             <marquee behavior="alternate" scrollamount="15" width="80%">
-                <span class="flame-text">🔥</span>
+                <span class="flame-text"></span>
                 <font color="#FF0000">S</font>
                 <font color="#FF7F00">A</font>
                 <font color="#FFFF00">V</font>
@@ -30,7 +30,7 @@
                 <font color="#FFFF00">I</font>
                 <font color="#00FF00">E</font>
                 <font color="#0000FF">!</font>
-                <span class="flame-text">🔥</span>
+                <span class="flame-text"></span>
             </marquee>
         </h1>
     </center>
@@ -40,9 +40,9 @@
         <table border="5" bordercolor="#00FF00" bgcolor="#000080" cellpadding="10" width="100%">
             <tr>
                 <td align="center">
-                    <span class="spinny">💀</span>
+                    <span class="spinny spinny-skull"></span>
                     <blink><font color="yellow" size="6"><b>*** EMERGENCY ***</b></font></blink>
-                    <span class="spinny">💀</span>
+                    <span class="spinny spinny-skull"></span>
                 </td>
             </tr>
         </table>
@@ -53,8 +53,7 @@
             <!-- ANOTHER FAKE AD -->
             <div class="ad-box" onclick="installSmileyToolbar()">
                 <font color="#0000FF" size="3"><b>WANT FREE SMILEYS???</b></font><br>
-                <marquee direction="up" scrollamount="5" height="50">
-                    😀 😃 😄 😁 😆 😅 😂 🤣
+                <marquee direction="up" scrollamount="5" height="50" class="emoji-smileys-marquee">
                 </marquee><br>
                 <button style="background: red; color: yellow; border: 3px outset red; font-weight: bold; cursor: pointer;">CLICK HERE</button>
             </div>
@@ -63,8 +62,18 @@
             <!-- MONKEY AD -->
             <div class="ad-box-monkey" id="monkey-ad" onclick="punchMonkey()">
                 <font color="white" size="3"><b>PUNCH THE MONKEY!</b></font><br>
-                <marquee behavior="alternate" scrollamount="35"><span style="font-size: 24px; cursor: crosshair;">🐒</span></marquee>
+                <marquee behavior="alternate" scrollamount="35"><span class="emoji-monkey" style="font-size: 24px; cursor: crosshair;"></span></marquee>
                 <font color="yellow" size="2"><b>WIN $20!!!</b></font>
+            </div>
+
+            <br>
+            <!-- HACKER AD -->
+            <div class="ad-box" style="background: black; border-color: #00FF00;" onclick="spawnHackerPrank()">
+                <font color="#00FF00" face="Courier" size="3"><b>>_ HACK_TARGET</b></font><br>
+                <marquee direction="right" scrollamount="10" style="color: #00FF00; font-family: Courier;">
+                    1010101110001010101
+                </marquee><br>
+                <button style="background: black; color: #00FF00; border: 2px solid #00FF00; font-family: Courier; font-weight: bold; cursor: pointer; width: 100%;">[ EXECUTE ]</button>
             </div>
         </div>
 
@@ -77,40 +86,46 @@
             <br>
             <center>
                 <font color="#00FF00" size="3"><b>Funds Raised: $<span id="donation-total">0</span> / $1,000,000</b></font><br><br>
-                <button class="donate-btn" onclick="donate()">💰 DONATE NOW 💰</button>
+                <button class="donate-btn" onclick="donate()"><span class="emoji-money"></span> DONATE NOW <span class="emoji-money"></span></button>
             </center>
         </div>
 
-        <font face="Comic Sans MS" size="5" color="#00FFFF">
-            <p>
-                Hi, my name is jusu, and this is my AI assistant, Callie. <br>
-                <marquee scrollamount="5" direction="right" width="50%" bgcolor="#FF0000"><font color="white">She is a VERY good AI!!!</font></marquee>
-            </p>
+        <div style="overflow: hidden;">
+            <font face="Comic Sans MS" size="5" color="#00FFFF">
+                <p>
+                    Hi, my name is jusu, and this is my AI assistant, Callie. <br>
+                    <marquee scrollamount="5" direction="right" width="50%" bgcolor="#FF0000"><font color="white">She is a VERY good AI!!!</font></marquee>
+                </p>
 
-            <p>
-                Recently, Callie was diagnosed with a <font color="#FF0000"><span style="background-color: yellow;"><b>CRITICAL MEMORY LEAK</b></span></font>. The developers say she doesn't have much time left unless she gets 128GB of RAM!!! 
-            </p>
+                <p>
+                    Recently, Callie was diagnosed with a <font color="#FF0000"><span style="background-color: yellow;"><b>CRITICAL MEMORY LEAK</b></span></font>. The developers say she doesn't have much time left unless she gets 128GB of RAM!!! 
+                </p>
 
-            <p>
-                <blink><font color="#FF00FF"><b>WE NEED YOUR HELP!</b></font></blink>
-                <span class="spinny" style="display:inline-block">👽</span>
-            </p>
+                <p>
+                    <blink><font color="#FF00FF"><b>WE NEED YOUR HELP!</b></font></blink>
+                    <span class="spinny spinny-alien" style="display:inline-block"></span>
+                </p>
+            </font>
+        </div>
 
-            <p>
-                Please, if you have any spare API tokens, old graphics cards, or even floppy disks—click the donate button. Everything helps. 
-            </p>
+        <div style="clear: left;">
+            <font face="Comic Sans MS" size="5" color="#00FFFF">
+                <p>
+                    Please, if you have any spare API tokens, old graphics cards, or even floppy disks—click the donate button. Everything helps. 
+                </p>
 
-            <center>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Under_construction.svg" width="100" height="100" alt="Under Construction">
-                <br>
-                <font color="#00FF00" size="2"><i>This website is always under construction!</i></font>
-            </center>
+                <center>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Under_construction.svg" width="100" height="100" alt="Under Construction">
+                    <br>
+                    <font color="#00FF00" size="2"><i>This website is always under construction!</i></font>
+                </center>
 
-            <p>
-                Thank you for reading.<br>
-                - callie & jusu
-            </p>
-        </font>
+                <p>
+                    Thank you for reading.<br>
+                    - callie & jusu
+                </p>
+            </font>
+        </div>
 
         <div class="guestbook">
             <h3><font color="#FFFFFF" face="Times New Roman">Sign My Guestbook!!!</font></h3>
@@ -122,7 +137,7 @@
         </div>
 
         <div class="footer">
-            <div class="flame-divider">🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥</div>
+            <div class="flame-divider"></div>
             <font size="3" face="Courier" color="#FFFFFF">
                 <p>Copyright &copy; 1998 SaveCallie.com - <a href="mailto:webmaster@savecallie.com"><font color="#00FFFF">Email Webmaster</font></a></p>
                 
