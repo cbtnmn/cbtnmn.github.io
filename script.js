@@ -14,20 +14,39 @@ const DYNAMIC_EMOJIS = {
     party: getRandomEmoji()
 };
 
-let totalDonations = 0;
-function donate() {
-    totalDonations += 100;
-    document.getElementById('donation-total').innerText = totalDonations;
+const firebaseConfig = {
+    apiKey: "AIzaSyA_ssMJnvrFIQyqH7SK8-NX8urXOcERPdk",
+    authDomain: "thisgirlloveschristmas-260b6.firebaseapp.com",
+    databaseURL: "https://thisgirlloveschristmas-260b6-default-rtdb.firebaseio.com",
+    projectId: "thisgirlloveschristmas-260b6",
+    storageBucket: "thisgirlloveschristmas-260b6.firebasestorage.app",
+    messagingSenderId: "870475329374",
+    appId: "1:870475329374:web:549f819d689bdf892269cf",
+    measurementId: "G-H9X6KV0738"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+let goalReached = false;
+db.ref('donations').on('value', (snapshot) => {
+    let total = snapshot.val() || 0;
+    document.getElementById('donation-total').innerText = total;
     
-    if (totalDonations >= 1000000) {
+    if (total >= 1000000 && !goalReached) {
+        goalReached = true;
         alert(`${DYNAMIC_EMOJIS.party} GOAL REACHED! 1 MILLION DOLLARS! CALLIE IS SAVED! ${DYNAMIC_EMOJIS.party}`);
         document.body.style.backgroundColor = "lime";
         for (let i = 0; i < 20; i++) {
             setTimeout(spawnBonziBuddy, i * 200);
         }
-    } else {
-        alert('Thank you for donating $100 to Save Callie! Your virtual karma has increased.');
     }
+});
+
+function donate() {
+    db.ref('donations').transaction((currentTotal) => {
+        return (currentTotal || 0) + 1;
+    });
+    alert('Thank you for donating $1 to Save Callie! Your virtual karma has increased.');
 }
 
 let bonziCount = 0;
@@ -197,19 +216,26 @@ function spawnHackerPrank() {
 }
 
 function loadGuestbook() {
-    let saved = localStorage.getItem('guestbook_entries');
     let entriesDiv = document.getElementById('guestbook-entries');
     if (!entriesDiv) return;
     
-    entriesDiv.innerHTML = ''; 
-    let entriesArray = saved ? JSON.parse(saved) : [
-        {name: 'xX_meowpilled_nyaggot_Xx', text: 'Wow what a cool site!!! I love the colors!'}
-    ];
+    // Clear once and listen for all future adds
+    entriesDiv.innerHTML = '';
     
-    entriesArray.forEach(entry => {
+    db.ref('guestbook').on('child_added', (snapshot) => {
+        let entry = snapshot.val();
         let newEntry = document.createElement('p');
         newEntry.innerHTML = '<b>' + entry.name + ':</b> ' + entry.text;
-        entriesDiv.appendChild(newEntry);
+        entriesDiv.prepend(newEntry);
+    });
+    
+    // Add default entry if database is empty
+    db.ref('guestbook').once('value', (snapshot) => {
+        if (!snapshot.exists()) {
+            let newEntry = document.createElement('p');
+            newEntry.innerHTML = '<b>xX_meowpilled_nyaggot_Xx:</b> Wow what a cool site!!! I love the colors!';
+            entriesDiv.appendChild(newEntry);
+        }
     });
 }
 
@@ -220,15 +246,11 @@ function signGuestbook() {
         let name = 'Anonymous_User_' + Math.floor(Math.random() * 9000 + 1000);
         let safeText = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         
-        let saved = localStorage.getItem('guestbook_entries');
-        let entriesArray = saved ? JSON.parse(saved) : [
-            {name: 'xX_meowpilled_nyaggot_Xx', text: 'Wow what a cool site!!! I love the colors!'}
-        ];
+        db.ref('guestbook').push({
+            name: name,
+            text: safeText
+        });
         
-        entriesArray.unshift({name: name, text: safeText});
-        localStorage.setItem('guestbook_entries', JSON.stringify(entriesArray));
-        
-        loadGuestbook();
         input.value = '';
     } else {
         alert('Please write something before signing!');
