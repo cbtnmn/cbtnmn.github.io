@@ -92,7 +92,7 @@ function loadGuestbook() {
     
     entriesDiv.innerHTML = ''; 
     let entriesArray = saved ? JSON.parse(saved) : [
-        {name: 'xX_Dark_Hacker_Xx', text: 'Wow what a cool site!!! I love the colors!'}
+        {name: 'xX_meowpilled_nyaggot_Xx', text: 'Wow what a cool site!!! I love the colors!'}
     ];
     
     entriesArray.forEach(entry => {
@@ -111,7 +111,7 @@ function signGuestbook() {
         
         let saved = localStorage.getItem('guestbook_entries');
         let entriesArray = saved ? JSON.parse(saved) : [
-            {name: 'xX_Dark_Hacker_Xx', text: 'Wow what a cool site!!! I love the colors!'}
+            {name: 'xX_meowpilled_nyaggot_Xx', text: 'Wow what a cool site!!! I love the colors!'}
         ];
         
         entriesArray.unshift({name: name, text: safeText});
