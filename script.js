@@ -157,7 +157,7 @@ function spawnHackerPrank() {
     
     let html = `
         <div style="background: #00FF00; color: black; padding: 5px; font-weight: bold; display: flex; justify-content: space-between;">
-            <span>[LOIC / TUPACBOOTER v0.9b - FOR DESTRUCTIVE PURPOSES ONLY]</span>
+            <span>[LOIC / TUPACBOOTER v0.9b - DDOS WOOFAS]</span>
             <button onclick="this.parentElement.parentElement.remove()" style="background: black; color: #00FF00; border: 1px solid #00FF00; cursor: pointer;">X</button>
         </div>
         <div style="padding: 15px; font-size: 14px;">
