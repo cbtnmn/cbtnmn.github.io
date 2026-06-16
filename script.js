@@ -65,7 +65,7 @@ function spawnBonziBuddy() {
             ${msg}
             <button onclick="this.parentElement.parentElement.remove(); spawnBonziBuddy(); spawnBonziBuddy();" style="position: absolute; top: -10px; right: -10px; background: red; color: white; border: 2px outset red; border-radius: 50%; font-weight: bold; cursor: pointer;">X</button>
         </div>
-        <img src="https://media.discordapp.net/attachments/1513627374644756591/1515494102362493039/bonzibuddy__by_crash123r56_diu51h1-pre.png?ex=6a2f355e&is=6a2de3de&hm=24863103aef96a307ca0e04f7c6b11aa1b193fbce6fd90bf4d80d19f198cf97d&=&format=webp&quality=lossless" alt="Bonzi Buddy" style="height: 150px; display: block; margin: 0 auto; filter: drop-shadow(2px 4px 6px black);">
+        <img src="/images/bonzibuddy.png" alt="Bonzi Buddy" style="height: 150px; display: block; margin: 0 auto; filter: drop-shadow(2px 4px 6px black);">
     `;
     document.body.appendChild(bonzi);
 }
