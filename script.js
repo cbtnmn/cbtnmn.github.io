@@ -30,6 +30,23 @@ db.ref('donations').on('value', (snapshot) => {
     }
 });
 
+// --- Visitor Counter ---
+(function initVisitorCounter() {
+    const counterEl = document.getElementById('visitor-counter');
+    if (!counterEl) return;
+
+    // Real-time listener: update the display whenever the count changes
+    db.ref('visitorCount').on('value', (snapshot) => {
+        let count = snapshot.val() || 0;
+        counterEl.innerText = String(count).padStart(6, '0');
+    });
+
+    // Increment on each page load (run once; Firebase transaction handles atomicity)
+    db.ref('visitorCount').transaction((current) => {
+        return (current || 0) + 1;
+    });
+})();
+
 function donate() {
     db.ref('donations').transaction((currentTotal) => {
         return (currentTotal || 0) + 1;
